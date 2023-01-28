@@ -162,6 +162,13 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 			display: flex;
 			align-items: center;
 		}
+		.navbar .nav>li>a {
+		line-height: 50px;
+		padding: 0px 14px;
+		font-size: 11.7px;
+		transition: all 0.6s 0s;
+		text-decoration: none;
+	}
 	</style>
 </head>
 
