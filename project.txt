@@ -1,0 +1,5 @@
+user table
+broadband plans table
+services provide by different network company
+services used by different users with date and amount
+devices connected to same network
