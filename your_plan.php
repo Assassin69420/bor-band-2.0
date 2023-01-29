@@ -98,7 +98,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 		}
 
 		.profile-card__button:focus {
-			margin-left: 10px;
 			outline: none !important;
 		}
 
