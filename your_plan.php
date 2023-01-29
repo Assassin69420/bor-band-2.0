@@ -252,6 +252,9 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     --rotate: 360deg;
   }
 }
+.side {
+	margin-left: 190px;
+}
 
 	</style>
 </head>
@@ -322,7 +325,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 									</h2>
 
 									<div class="stats">
-										<p class="stat">Tarrif: ₹' .
+										<p class="stat">Price: ₹' .
 							$obj->service_cost . '
 										</p>
 										<p class="stat">Date of purchase: ' .
@@ -331,8 +334,8 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 									</div>
 
 									<form action="bills.php" method="POST">
-										<button>View bill</button>
-										<input type="hidden" name="related_plan_id" value="' . $obj->plan_id . '">
+										<button class="profile-card__button button--orange  side">View bill</button>
+										<input type="hidden" name="related_plan_id" value="' . $obj->service_id . '">
 									</form>
 							</div>
 						';
