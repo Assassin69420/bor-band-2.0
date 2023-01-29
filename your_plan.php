@@ -332,7 +332,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 										</p>
 									</div>
 
-									<form action="bills.php" method="POST">
+									<form action="servicebill.php" method="POST">
 										<button class="profile-card__button button--orange  side">View bill</button>
 										<input type="hidden" name="related_plan_id" value="' . $obj->service_id . '">
 									</form>
