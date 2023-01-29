@@ -45,23 +45,25 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
+
 		@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Bubblegum+Sans|Caveat+Brush|Chewy|Lobster+Two');
 
 		td {
 			padding: 2rem;
-			border: 1px solid black;
+			border: 1px solid #03e9f4;
 		}
 
 		.profile-card-ctr {
-			color: black;
+			color: #03e9f4;
 			display: flex;
+			position: relative;
 			justify-content: center;
 			align-items: center;
 			margin-top: 40px;
 			flex-direction: column;
 			min-height: 30rem;
 			min-width: 10rem;
-			background: white;
+			background: linear-gradient(45deg, #141e30, #243b55);
 			border-radius: 3%;
 			padding: 0 5rem;
 		}
@@ -84,59 +86,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 			}
 		}
 
-		.profile-card__button {
-			background: none;
-			border: none;
-			font-family: "Quicksand", sans-serif;
-			font-weight: 700;
-			font-size: 19px;
-			margin: 15px 35px;
-			padding: 15px 40px;
-			min-width: 201px;
-			border-radius: 50px;
-			min-height: 55px;
-			color: #fff;
-			cursor: pointer;
-			backface-visibility: hidden;
-			transition: all 0.3s;
-
-			margin-top: auto;
-			padding-bottom: 1rem;
-			margin-bottom: 2rem;
-		}
-
-		.profile-card-ctr {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin-top: 40px;
-		}
-
-		@media screen and (max-width: 576px) {
-			.profile-card-ctr {
-				flex-wrap: wrap;
-			}
-		}
-
-		.profile-card__button:focus {
-			outline: none !important;
-		}
-
-		@media screen and (min-width: 768px) {
-			.profile-card__button:hover {
-				transform: translateY(-8px);
-			}
-		}
-
-		.profile-card__button.button--orange {
-			background: linear-gradient(45deg, #141e30, #243b55);
-			box-shadow: 0px 4px 30px #141e30;
-		}
-
-		.profile-card__button.button--orange:hover {
-			box-shadow: 0px 7px 30px #03e9f4;
-		}
-
 		.td {
 			padding-left: 110px;
 		}
@@ -153,14 +102,17 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			position: relative;
 			justify-content: center;
 			flex-grow: 0;
-			color: white;
+			color: #03e9f4;
 		}
 
 		.card-info {
 			display: flex;
 			align-items: center;
+			padding-bottom: 20px;
+			color: #03e9f4
 		}
 		.navbar .nav>li>a {
 		line-height: 50px;
@@ -168,7 +120,50 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 		font-size: 11.7px;
 		transition: all 0.6s 0s;
 		text-decoration: none;
-	}
+		}
+		.profile-card-ctr::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+		.profile-card-ctr::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
+}
+		@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+	
 	</style>
 </head>
 
@@ -178,8 +173,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 
 		<div class="plansservices_display">
 			<div class="profile-card-ctr">
-				<h1>Name: <?php echo $bill->username ?></h1>
-				<h1>Account id: <?php echo $bill->account_id ?></h1>
 				<h1><?php echo $bill->ps_name ?></h1>
 				<div class="card-info">
 					<table>
