@@ -110,7 +110,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 				if ($isLoggedin) {
 					echo '<li><a href="profile.php"',  ' class="', $class, '">Profile</a></li>';
 				} else {
-					echo '<li><a href="login.php"',  ' class="', $class, '">Login</a></li>';
+					echo '<li><a href="profile.php"',  ' class="', $class, '">Profile</a></li>';
 				}
 				?>
 			</ul>
