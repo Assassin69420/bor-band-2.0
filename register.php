@@ -314,16 +314,16 @@ p a{
         <h2>Sign up</h2>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
           <div class="user-box">
-            <input type="text" name="phone" class="form-control" <?php echo (!empty($phone_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $phone; ?>">
+            <input type="text" name="phone" required="" <?php echo (!empty($phone_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $phone; ?>">
             <label>Phone number</label>
 			<span class="invalid-feedback"><?php echo $phone_err; ?></span>
           </div>
           <div class="user-box">
-            <input type="text" name="name" class="form-control" value="<?php echo $name; ?>">
+            <input type="text" name="name" required="" value="<?php echo $name; ?>">
             <label>Name</label>
           </div>
           <div class="user-box">
-            <input type="text" name="address" class="form-control" value="<?php echo $address; ?>">
+            <input type="text" name="address" required="" value="<?php echo $address; ?>">
             <label>Address</label>
           </div>
           <div class="user-box">
@@ -332,7 +332,7 @@ p a{
 			<span class="invalid-feedback"><?php echo $password_err; ?></span>
           </div>
 		  <div class="user-box">
-            <input type="Cpassword" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+            <input type="password" name="confirm_password" required="" <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
             <label>Confirm Password</label>
 			<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
           </div>
