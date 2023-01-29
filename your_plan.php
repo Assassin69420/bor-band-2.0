@@ -37,7 +37,11 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Bubblegum+Sans|Caveat+Brush|Chewy|Lobster+Two');
-
+		body {
+			background: linear-gradient(45deg, #141e30, #243b55);
+			background-size: 100% 400vh;
+			background-repeat: repeat-y;
+		}
 		.profile-card-ctr {
 			display: flex;
 			justify-content: center;
@@ -157,11 +161,14 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 			flex-direction: column;
 			background: linear-gradient(45deg, #141e30, #243b55);
 			border-radius: 6px;
+			width: 360px;
+			height: 400px;
 			position: relative;
 			padding: 2rem;
 			align-items: flex-start;
 			gap: 3rem;
-			margin-right: 20px;
+			margin-right: 10px;
+			margin-bottom: 10px
 		}
 
 		.stats {
@@ -252,8 +259,9 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
   }
 }
 .side {
-	margin-left: 190px;
+	margin-left: 60px;
 }
+
 
 	</style>
 </head>
@@ -263,7 +271,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 	<div class="cards-table">
 
 		<?php if ($user_hist[1]->num_rows > 0) : ?>
-			<div class="plansservices_display">
+			<div class="plansservices_display plan">
 				<h2 class="title">Active Plans</h2>
 				<div class="plan-cards">
 					<?php
@@ -295,7 +303,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 									</div>
 
 									<form action="bills.php" method="POST">
-										<button class="profile-card__button button--orange">View bill</button>
+										<button class="profile-card__button button--orange side">View bill</button>
 										<input type="hidden" name="related_plan_id" value="' . $obj->plan_id . '">
 									</form>
 							</div>
@@ -309,7 +317,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 		<?php if ($user_hist[0]->num_rows > 0) : ?>
 			<div class="plansservices_display">
 				<h2 class="title">Active Services</h2>
-				<div class="plan-cards">
+				<div class="plan-cards left-css">
 					<?php
 					while ($obj = $user_hist[0]->fetch_object()) {
 						echo '
@@ -332,7 +340,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 										</p>
 									</div>
 
-									<form action="servicebill.php" method="POST">
+									<form action="bills.php" method="POST">
 										<button class="profile-card__button button--orange  side">View bill</button>
 										<input type="hidden" name="related_plan_id" value="' . $obj->service_id . '">
 									</form>

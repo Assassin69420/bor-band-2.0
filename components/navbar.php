@@ -6,6 +6,8 @@
 		width: 100%;
 		height: 100%;
 		background: linear-gradient(#141e30, #243b55);
+		background-size: 100% 400vh;
+			background-repeat: repeat-y;
 
 	}
 

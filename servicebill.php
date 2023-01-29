@@ -172,7 +172,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 
 <div class="plansservices_display">
     <div class="profile-card-ctr">
-    <h1><?php echo $bill->service_name ?></h1>
+    <h1><?php echo $bill->ps_name ?></h1>
         <div class="card-info">
             <table>
                 <tr>
